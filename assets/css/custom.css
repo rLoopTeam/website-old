@@ -43,6 +43,7 @@ h1, h2, h3, p{
 	display: inline;
 	/*float:right;*/
 	font-size:2rem;
+	margin-bottom:0.2rem;
 }
 .logo{
 	font-size:3.5rem;
@@ -62,9 +63,21 @@ h1, h2, h3, p{
 	color:rgb(234,234,234);
 }
 
-.v-button{
-	font-size:9rem;
+#v-button{
+	font-size: 2.9rem;
 	margin-left:10%;
 	color:white;
 	border-radius:20px;
+	border:0.2rem solid white;
+}
+
+.desc{
+		width:100%;
+		text-align:center;
+		margin-top:3rem;
+}
+
+.desc-text{
+	color:white;
+	font-size: 1.6rem;
 }
