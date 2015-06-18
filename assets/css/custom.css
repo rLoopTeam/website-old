@@ -3,14 +3,60 @@
  * Use this file to override Materialize files so you can update
  * the core Materialize files in the future
  *
- * 
+ *
  */
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
+/*Main index*/
 .parallax img {
 	display:block;
 
 }
 
 .bordered-white-text {
-  color: #FFFFFF !important; 
+  color: #FFFFFF !important;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
+
+/*Proposed homepage*/
+h1, h2, h3, p{
+	font-family: 'Roboto', sans-serif;
+	display: inline;
+}
+
+.header-nav{
+	display: block;
+}
+
+nav{
+	width: 100%;
+	background-color:rgb(130, 26, 207);
+}
+
+
+.nav-wrapper{
+	width:70%;
+	margin:0 auto;
+}
+
+.logo{
+	font-size:3.5rem;
+	display:inline;
+}
+.menu-items
+{
+	/*display: inline;*/
+	font-size:2rem;
+}
+
+.menu-items li{
+	/*display: inline;*/
+	padding-left:5%;
+	padding-right:5%;
+	color:rgb(186,133,229);
+}
+
+.v-button{
+	font-size: 2.5rem;
+	margin-left:5%;
+	border-radius:20px;
+}
