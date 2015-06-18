@@ -1,0 +1,75 @@
+
+@import 'values';
+
+body > header {
+  background: linear-gradient(to bottom, rgba(black, 0.25), rgba(black, 0));
+
+  color: white;
+  
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  
+  height: 30vh;
+  width: 100%;
+
+  @include padding(1, 8);
+
+  font-size: 20px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  z-index: 100;
+
+  * {
+    display: inline-block;
+    text-shadow: 0 1px 1px rgba(black, 0.2);
+  }
+
+  > * {
+    @include padding(1, 2);
+  }
+
+  nav {
+    @include padding(0, 4);
+    
+    li {
+      color: rgba(white, 0.8);
+      
+      @include padding(1, 1);
+    }
+    
+  }
+
+  .volunteer.button {
+    box-shadow: 0 0 0 2px white, 0 1px 1px 2px rgba(black, 0.2), inset 0 1px 1px 0px rgba(black, 0.2);
+    border-radius: $unit * 0.25;
+    float: right;
+    @include margin(0.5, 2);
+    @include padding(0.5, 2);
+
+    transition: background-color 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+
+    &:hover {
+      background-color: white;
+      
+      box-shadow: 0 0 0 2px white, 0 1px 1px 2px rgba(black, 0.2);
+      
+      color: rgba(black, 0.6);
+      text-shadow: none;
+      
+      cursor: pointer;
+    }
+    
+    &:active {
+      background-color: #eee;
+      
+      box-shadow: 0 0 0 2px #eee, 0 1px 1px 2px rgba(black, 0.2);
+      
+      color: rgba(black, 0.4);
+    }
+  }
+  
+}

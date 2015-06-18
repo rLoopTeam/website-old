@@ -1,0 +1,54 @@
+
+$unit: 8px;
+
+// PADDING (to make it simpler for mobile layouts)
+
+@mixin padding-top($factor: 1) {
+  padding-top: $unit * $factor;
+}
+
+@mixin padding-right($factor: 1) {
+  padding-right: $unit * $factor;
+}
+
+@mixin padding-bottom($factor: 1) {
+  padding-bottom: $unit * $factor;
+}
+
+@mixin padding-left($factor: 1) {
+  padding-left: $unit * $factor;
+}
+
+@mixin padding($factor-y: 1, $factor-x: 1) {
+  @include padding-right($factor-x);
+  @include padding-left($factor-x);
+  
+  @include padding-top($factor-y);
+  @include padding-bottom($factor-y);
+}
+
+// MARGIN
+
+@mixin margin-top($factor: 1) {
+  margin-top: $unit * $factor;
+}
+
+@mixin margin-right($factor: 1) {
+  margin-right: $unit * $factor;
+}
+
+@mixin margin-bottom($factor: 1) {
+  margin-bottom: $unit * $factor;
+}
+
+@mixin margin-left($factor: 1) {
+  margin-left: $unit * $factor;
+}
+
+@mixin margin($factor-y: 1, $factor-x: 1) {
+  @include margin-right($factor-x);
+  @include margin-left($factor-x);
+  
+  @include margin-top($factor-y);
+  @include margin-bottom($factor-y);
+}

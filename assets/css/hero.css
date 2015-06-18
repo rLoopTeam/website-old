@@ -1,0 +1,34 @@
+#hero {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; }
+  #hero .page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #D8D7D3; }
+    #hero .page img {
+      display: block;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      margin: auto;
+      transform: translateY(-50%); }
+    #hero .page .message {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 7vh;
+      z-index: 200;
+      padding-right: 0px;
+      padding-left: 0px;
+      padding-top: 32px;
+      padding-bottom: 32px; }
+
+/*# sourceMappingURL=hero.css.map */
