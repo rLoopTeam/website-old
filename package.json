@@ -1,0 +1,22 @@
+{
+  "name": "redditloop-website",
+  "version": "2.0.0",
+  "description": "A Website for redditloop",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theRedditLoop/Website.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/theRedditLoop/Website/issues"
+  },
+  "homepage": "https://github.com/theRedditLoop/Website#readme"
+}
