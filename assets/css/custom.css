@@ -3,14 +3,102 @@
  * Use this file to override Materialize files so you can update
  * the core Materialize files in the future
  *
- * 
+ *
  */
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
+/*Main index*/
 .parallax img {
-	display:block;
+    display: block;
 
 }
 
 .bordered-white-text {
-  color: #FFFFFF !important; 
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
+    color: #FFFFFF !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+/*Proposed homepage*/
+html {
+    background: url(../files/hyperloop2-1920-1080.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1, h2, h3, p {
+    font-family: 'Roboto', sans-serif;
+    display: inline;
+}
+
+.gradient{
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(215,216,212,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.2)), color-stop(100%, rgba(215,216,212,1)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(215,216,212,1) 100%);
+  background: -o-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(215,216,212,1) 100%);
+  background: -ms-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(215,216,212,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(215,216,212,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#d7d8d4', GradientType=0 );
+}
+
+.header-nav {
+    display: block;
+    width: 100%;
+
+}
+
+.nav-wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-items {
+    display: inline;
+    /*float:right;*/
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+}
+
+.logo {
+    font-size: 3.5rem;
+    display: inline;
+    color: white;
+    text-shadow: 4px 4px 4px rgba(150, 150, 150, 0.71);
+}
+
+.menu-items a:first-child {
+    margin-left: 4%;
+}
+
+.menu-items li {
+    display: inline;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-size: 2rem;
+    color: rgb(245, 245, 245);
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.45);
+}
+
+#v-button {
+    margin-top: 0.7rem;
+    float: right;
+    font-size: 2.3rem;
+    font-weight: bold;
+    /*margin-left:10%;*/
+    color: white;
+    border-radius: 20px;
+    border: 0.2rem solid white;
+}
+
+.desc {
+    width: 100%;
+    text-align: center;
+    margin-top: 5rem;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.45);
+}
+
+.desc-text {
+    color: white;
+    font-size: 2rem;
+}
