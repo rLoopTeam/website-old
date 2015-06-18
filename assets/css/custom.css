@@ -28,6 +28,7 @@ html{
 h1, h2, h3, p{
 	font-family: 'Roboto', sans-serif;
 	display: inline;
+	padding-right:
 }
 
 .header-nav{
@@ -53,8 +54,9 @@ h1, h2, h3, p{
 	font-size:3.5rem;
 	display:inline;
 	color:white;
-
+	text-shadow: 4px 4px 4px rgba(150, 150, 150, 0.71);
 }
+
 
 .menu-items a:first-child{
 	margin-left:4%;
@@ -86,5 +88,5 @@ h1, h2, h3, p{
 
 .desc-text{
 	color:white;
-	font-size: 1.6rem;
+	font-size: 2rem;
 }
