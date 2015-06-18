@@ -18,6 +18,9 @@
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
 
 /*Proposed homepage*/
+body{
+	background-color:rgb(197,197,197);
+}
 h1, h2, h3, p{
 	font-family: 'Roboto', sans-serif;
 	display: inline;
@@ -25,38 +28,43 @@ h1, h2, h3, p{
 
 .header-nav{
 	display: block;
-}
-
-nav{
 	width: 100%;
-	background-color:rgb(130, 26, 207);
+	/*background-color:rgb(130, 26, 207);*/
 }
 
 
 .nav-wrapper{
-	width:70%;
+	width:90%;
 	margin:0 auto;
 }
 
+.menu-items
+{
+	display: inline;
+	/*float:right;*/
+	font-size:2rem;
+}
 .logo{
 	font-size:3.5rem;
 	display:inline;
-}
-.menu-items
-{
-	/*display: inline;*/
-	font-size:2rem;
+	color:white;
+
 }
 
+.menu-items li:nth-child(1){
+	margin-left:1%;
+}
 .menu-items li{
-	/*display: inline;*/
-	padding-left:5%;
-	padding-right:5%;
-	color:rgb(186,133,229);
+	display:inline;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	font-size:2rem;
+	color:rgb(234,234,234);
 }
 
 .v-button{
-	font-size: 2.5rem;
-	margin-left:5%;
+	font-size:9rem;
+	margin-left:10%;
+	color:white;
 	border-radius:20px;
 }
