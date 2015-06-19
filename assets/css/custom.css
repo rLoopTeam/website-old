@@ -27,11 +27,9 @@ html {
     background-size: cover;
 }
 
-nav{
-background:none;
-border:none;
-box-shadow: none;
-
+h1, h2, h3, p {
+    font-family: 'Roboto', sans-serif;
+    display: inline;
 }
 
 .gradient{
@@ -44,12 +42,11 @@ box-shadow: none;
   background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
 }
-nav .brand-logo {
-    font-size: 3.5rem;
-    display: inline;
-    color: white;
-    text-shadow: 4px 4px 4px rgba(150, 150, 150, 0.71);
-    padding-left: 20px;
+
+.header-nav {
+    display: block;
+    width: 100%;
+
 }
 
 .nav-wrapper {
@@ -57,10 +54,42 @@ nav .brand-logo {
     margin: 0 auto;
 }
 
+.menu-items {
+    display: inline;
+    /*float:right;*/
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+}
+
+.logo {
+    font-size: 3.5rem;
+    display: inline;
+    color: white;
+    text-shadow: 4px 4px 4px rgba(150, 150, 150, 0.71);
+}
+
+.menu-items a:first-child {
+    margin-left: 4%;
+}
+
+.menu-items li {
+    display: inline;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-size: 2rem;
+    color: rgb(245, 245, 245);
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.45);
+}
 
 #v-button {
-    font-size: 1.5rem;
+    margin-top: 0.7rem;
+    float: right;
+    font-size: 2.3rem;
     font-weight: bold;
+    /*margin-left:10%;*/
+    color: white;
+    border-radius: 20px;
+    border: 0.2rem solid white;
 }
 
 .desc {
@@ -72,5 +101,5 @@ nav .brand-logo {
 
 .desc-text {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
