@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         src: ['build/**/*.js', 'build/js', '!build/bundle.js']
       },
       templates: {
-        src: ['build/templates/**/*.html', 'build/templates']
+        src: ['build/template/**/*.html', 'build/template']
       },
       vendor: {
         src: ['vendor']
@@ -74,6 +74,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Bundle JS, give require, etc.
     browserify: {
       build: {
         src: 'build/js/index.js',
@@ -85,7 +86,6 @@ module.exports = function(grunt) {
     },
 
     // add headers, footers, etc.
-    
     includereplace: {
       build: {
         src: 'src/*.html',
@@ -98,18 +98,32 @@ module.exports = function(grunt) {
 
     // Watch
     watch: {
+      options: {
+        livereload: true
+      },
       stylesheets: {
         files: ['src/**/*.scss'],
         tasks: ['stylesheets']
       },
       scripts: {
-        files: 'src/**/*.js',
+        files: 'src/js/**/*.js',
         tasks: ['scripts']
       },
       includereplace: {
         files: ['src/**/*.html'],
         tasks: ['includereplace']
-      }
+      },
+      
+    },
+    
+    // Lint
+    jshint: {
+      options: {
+        globals: [],
+        browserify: true,
+        jquery: true
+      },
+      files: ['Gruntfile.js', 'src/js/**/*.js']
     },
 
     // Development Server
@@ -118,7 +132,22 @@ module.exports = function(grunt) {
         options: {
           port: 8080,
           base: 'build',
-          hostname: 'localhost'
+          hostname: 'localhost',
+          livereload: true
+        }
+      }
+    },
+    
+    // Beautify
+    jsbeautifier : {
+      files : ["src/js/**/*.js", "src/**/*.html"],
+      options : {
+        js: {
+          indentSize: 2
+        },
+        
+        html: {
+          indentSize: 2
         }
       }
     }
@@ -128,9 +157,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
 
-  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['browserify', 'uglify', 'clean:scripts']);
+  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['jshint', 'jsbeautifier', 'browserify', 'uglify', 'clean:scripts']);
 
   grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'includereplace', 'stylesheets', 'scripts', 'clean:vendor']);
   
   grunt.registerTask('default', 'Watches the project for changes, automatically builds them and runs a server.', [ 'build', 'connect', 'watch' ]);
-}
+};
