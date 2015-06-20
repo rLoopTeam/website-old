@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         src: ['build/**/*.js', 'build/js', '!build/bundle.js']
       },
       templates: {
-        src: ['build/templates/**/*.html', 'build/templates']
+        src: ['build/template/**/*.html', 'build/template']
       },
       vendor: {
         src: ['vendor']
