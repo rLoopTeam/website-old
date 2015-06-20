@@ -74,6 +74,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Bundle JS, give require, etc.
     browserify: {
       build: {
         src: 'build/js/index.js',
@@ -85,7 +86,6 @@ module.exports = function(grunt) {
     },
 
     // add headers, footers, etc.
-    
     includereplace: {
       build: {
         src: 'src/*.html',
@@ -116,6 +116,7 @@ module.exports = function(grunt) {
       
     },
     
+    // Lint
     jshint: {
       options: {
         globals: [],
@@ -135,6 +136,20 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+    
+    // Beautify
+    jsbeautifier : {
+      files : ["src/js/**/*.js", "src/**/*.html"],
+      options : {
+        js: {
+          indentSize: 2
+        },
+        
+        html: {
+          indentSize: 2
+        }
+      }
     }
     
   });
@@ -142,7 +157,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
 
-  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['jshint', 'browserify', 'uglify', 'clean:scripts']);
+  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['jshint', 'jsbeautifier', 'browserify', 'uglify', 'clean:scripts']);
 
   grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'includereplace', 'stylesheets', 'scripts', 'clean:vendor']);
   
