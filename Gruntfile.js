@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         src: ['build']
       },
       stylesheets: {
-        //        src: ['build/css', '!build/bundle.css']
+        src: ['build/css', '!build/bundle.css']
       },
       scripts: {
         src: ['build/**/*.js', '!build/bundle.js']
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'build/bundle.css' : 'build/css/main.scss'
+          'build/bundle.css' : 'src/css/main.scss'
         }
       }
     },
@@ -87,28 +87,20 @@ module.exports = function(grunt) {
 
     // add headers, footers, etc.
     
-    htmlbuild: {
-      dist: {
-        src: 'src/**/.html',
-        dest: 'build',
-        options: {
-          beautify: true,
-          relative: true,
-          sections: {
-            header: 'src/template/header.html',
-            footer: 'src/template/footer.html'
-          },
-          data: {
-            title: "redditloop",
-          },
-        }
+    includereplace: {
+      build: {
+        src: 'src/*.html',
+        dest: 'build/',
+        flatten: true,
+        cwd: '.',
+        expand: true
       }
     },
 
     // Watch
     watch: {
       stylesheets: {
-        files: ['src/**/*.css', 'src/**/*.scss'],
+        files: ['src/**/*.scss'],
         tasks: ['stylesheets']
       },
       scripts: {
@@ -119,9 +111,12 @@ module.exports = function(grunt) {
         files: ['src/**', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js', '!src/**/*.svg',
                 '!src/**/*.html', '!src/template'],
         tasks: ['copy']
+      },
+      includereplace: {
+        files: ['src/**/*.html'],
+        tasks: ['includereplace']
       }
     },
-
 
     // Development Server
     connect: {
@@ -133,17 +128,19 @@ module.exports = function(grunt) {
         }
       }
     }
+    
   });
+  
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-html-build');
+  grunt.loadNpmTasks('grunt-include-replace');
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
 
   grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['browserify', 'uglify', 'clean:scripts']);
 
-  grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'htmlbuild', 'stylesheets', 'scripts']);
+  grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'includereplace', 'stylesheets', 'scripts']);
   
   grunt.registerTask('default', 'Watches the project for changes, automatically builds them and runs a server.', [ 'build', 'connect', 'watch' ]);
 }
