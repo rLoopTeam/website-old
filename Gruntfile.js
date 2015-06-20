@@ -64,7 +64,6 @@ module.exports = function(grunt) {
     
     browserify: {
       build: {
-        cwd: 'build',
         src: 'build/js/index.js',
         dest: 'build/bundle.js',
         'browserifyOptions': {
