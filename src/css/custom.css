@@ -1,0 +1,107 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ *
+ */
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+/*Main index*/
+.parallax img {
+    display: block;
+
+}
+
+.bordered-white-text {
+    color: #FFFFFF !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+/*Proposed homepage*/
+html {
+    background: url(../img/hyperloop2-1920-1080.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+nav{
+background:none;
+border:none;
+box-shadow: none;
+
+}
+
+.gradient{
+  background: rgba(0,0,0,0.2);
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.2)), color-stop(100%, rgba(255,255,255,0)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+  background: -o-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+  background: -ms-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
+}
+nav .brand-logo {
+    font-size: 3.5rem;
+    display: inline;
+    color: white;
+    text-shadow: 4px 4px 4px rgba(150, 150, 150, 0.71);
+    padding-left: 20px;
+}
+
+.nav-wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+#v-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.desc {
+    width: 100%;
+    text-align: center;
+    margin-top: 5rem;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.45);
+}
+
+.desc-text {
+    color: white;
+    font-size: 1.5rem;
+}
+
+footer{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  padding-bottom:2rem;
+
+  height:6rem;
+  width:100%;
+  background:rgba(126,168,212,0.2);
+  /*background: -moz-linear-gradient(top, rgba(154,161,179,0) 0%, rgba(154,161,179,0) 1%, rgba(126,168,212,0.73) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(154,161,179,0)), color-stop(1%, rgba(154,161,179,0)), color-stop(100%, rgba(126,168,212,0.73)));
+  background: -webkit-linear-gradient(top, rgba(154,161,179,0) 0%, rgba(154,161,179,0) 1%, rgba(126,168,212,0.73) 100%);
+  background: -o-linear-gradient(top, rgba(154,161,179,0) 0%, rgba(154,161,179,0) 1%, rgba(126,168,212,0.73) 100%);
+  background: -ms-linear-gradient(top, rgba(154,161,179,0) 0%, rgba(154,161,179,0) 1%, rgba(126,168,212,0.73) 100%);
+  background: linear-gradient(to bottom, rgba(154,161,179,0) 0%, rgba(154,161,179,0) 1%, rgba(126,168,212,0.73) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9aa1b3', endColorstr='#7ea8d4', GradientType=0 );*/
+}
+
+footer ul{
+  width: 25%;
+  margin: 0 auto;
+  text-align:center;
+  margin-top:1rem;
+}
+
+footer li{
+  /*display:inline;*/
+  margin-right:3%;
+  color:white;
+}
