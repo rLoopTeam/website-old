@@ -98,6 +98,9 @@ module.exports = function(grunt) {
 
     // Watch
     watch: {
+      options: {
+        livereload: true
+      },
       stylesheets: {
         files: ['src/**/*.scss'],
         tasks: ['stylesheets']
@@ -109,7 +112,8 @@ module.exports = function(grunt) {
       includereplace: {
         files: ['src/**/*.html'],
         tasks: ['includereplace']
-      }
+      },
+      
     },
 
     // Development Server
@@ -118,7 +122,8 @@ module.exports = function(grunt) {
         options: {
           port: 8080,
           base: 'build',
-          hostname: 'localhost'
+          hostname: 'localhost',
+          livereload: true
         }
       }
     }
