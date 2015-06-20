@@ -18,14 +18,23 @@ module.exports = function(grunt) {
         src: ['build']
       },
       stylesheets: {
-        src: ['build/**/*.css', '!build/bundle.css']
+        //        src: ['build/css', '!build/bundle.css']
       },
       scripts: {
         src: ['build/**/*.js', '!build/bundle.js']
       },
     },
 
-    // Auto add vendo prefixes
+    // compile scss to css
+    sass: {
+      dist: {
+        files: {
+          'build/bundle.css' : 'build/css/main.scss'
+        }
+      }
+    },
+    
+    // Auto add vendor prefixes
     build: {
       expand: true,
       cwd: 'build',
@@ -37,7 +46,7 @@ module.exports = function(grunt) {
     cssmin: {
       build: {
         files: {
-          'build/bundle.css': ['build/**/*.css']
+          'build/bundle.css': ['build/bundle.css']
         }
       }
     },
@@ -83,7 +92,7 @@ module.exports = function(grunt) {
         tasks: ['scripts']
       },
       copy: {
-        files: ['src/**', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js'],
+        files: ['src/**', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js', '!src/**/*.svg'],
         tasks: ['copy']
       }
     },
@@ -101,9 +110,10 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['autoprefixer', 'cssmin', 'clean:stylesheets']);
+  grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
 
   grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['browserify', 'uglify', 'clean:scripts']);
 
