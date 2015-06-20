@@ -22,13 +22,16 @@ module.exports = function(grunt) {
         src: ['build']
       },
       stylesheets: {
-        src: ['build/css', '!build/bundle.css']
+        src: ['build/**/*.css', 'build/css', '!build/bundle.css']
       },
       scripts: {
-        src: ['build/**/*.js', '!build/bundle.js']
+        src: ['build/**/*.js', 'build/js', '!build/bundle.js']
       },
       templates: {
-        src: ['build/templates/**/*.html']
+        src: ['build/templates/**/*.html', 'build/templates']
+      },
+      vendor: {
+        src: ['vendor']
       },
     },
 
@@ -104,7 +107,7 @@ module.exports = function(grunt) {
     watch: {
       stylesheets: {
         files: ['src/**/*.scss'],
-        tasks: ['copy', 'stylesheets']
+        tasks: ['stylesheets']
       },
       scripts: {
         files: 'src/**/*.js',
@@ -134,7 +137,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['browserify', 'uglify', 'clean:scripts']);
 
-  grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'includereplace', 'stylesheets', 'scripts']);
+  grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'includereplace', 'stylesheets', 'scripts', 'clean:vendor']);
   
   grunt.registerTask('default', 'Watches the project for changes, automatically builds them and runs a server.', [ 'build', 'connect', 'watch' ]);
 }
