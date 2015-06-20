@@ -1,0 +1,53 @@
+h2.media-sub-header{
+    color:rgba(black,0.4);
+    font-size:1.5rem;
+    padding-left: 3*$unit;
+    padding-top: 3* $unit;
+    padding-bottom: 3*$unit;
+}
+
+.gallery{
+    width:100%;
+    margin: 0 auto !important;
+    margin-left:1.5 * $unit;
+    .gallery-img{
+        height:10rem;
+        display:inline;
+        width:46%;
+        margin-bottom:3 * $unit;
+
+
+        &:nth-child(2n)
+        {
+            margin-right:2.5%;
+            margin-left:1%;
+        }
+
+        &:nth-child(2n-1)
+        {
+            margin-left:2.5%;
+            margin-right:1%;
+        }
+    }
+}
+
+@media(max-width: 900px){ //hehehe because media
+    .gallery{
+        margin: 0 auto;
+        .gallery-img{
+            width:95%;
+            padding-left:5%;
+            &:nth-child(2n)
+            {
+                margin-right:0%;
+                margin-left:0%;
+            }
+
+            &:nth-child(2n-1)
+            {
+                margin-left:0%;
+                margin-right:0%;
+            }
+        }
+    }
+}
