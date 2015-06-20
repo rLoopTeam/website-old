@@ -1,11 +1,20 @@
 
 @import 'reset';
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import '//fonts.googleapis.com/css?family=Roboto';
 @import 'header';
+
+@import 'home';
 
 @import 'footer';
 
+@import 'content';
+
 html {
-  background-color: #f4f4f4;
+  background-color: #f2f2f2;
+  color: rgba(black, 0.9);
   font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
 }
