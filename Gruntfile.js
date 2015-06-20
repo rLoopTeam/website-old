@@ -18,11 +18,14 @@ module.exports = function(grunt) {
             watch: true,
             keepAlive: true
           }
+        },
+        jshint: {
+          jshintrc: true
         }
 	});
 	require('load-grunt-tasks')(grunt);
     grunt.registerTask('default', ['dist']);
-	grunt.registerTask('dist', ['browserify:dist']);
-	grunt.registerTask('dev', ['browserify:dev']);
-	grunt.registerTask('watch', ['browserify:watch']);
+	grunt.registerTask('dist', ['browserify:dist', 'jshint']);
+	grunt.registerTask('dev', ['browserify:dev', 'jshint']);
+	grunt.registerTask('watch', ['browserify:watch', 'jshint']);
 }
