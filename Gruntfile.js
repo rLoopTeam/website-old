@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
         browserify: {
           files: {
-              'dist/bundle.js': ['assets/vendor/js/**/*.js''assets/js/**/*.js'],
+              'bundle.js': ['assets/vendor/js/**/*.js''assets/js/**/*.js'],
           },
           'browserifyOptions': {
               'debug':true
@@ -13,11 +13,7 @@ module.exports = function(grunt) {
               'debug':false
             }
           },
-          dev: {},  
-          watch: {
-            watch: true,
-            keepAlive: true
-          }
+          dev: {}
         },
         jshint: {
           jshintrc: true
