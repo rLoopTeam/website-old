@@ -1,6 +1,6 @@
 
 @import 'reset';
-
+@import '//fonts.googleapis.com/css?family=Roboto';
 @import 'header';
 
 @import 'home';
@@ -12,6 +12,7 @@
 html {
   background-color: #f2f2f2;
   color: rgba(black, 0.9);
+  font-family: 'Roboto', sans-serif;
 }
 
 html, body {

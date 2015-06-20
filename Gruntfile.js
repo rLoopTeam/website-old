@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     // Auto add vendor prefixes
     build: {
       expand: true,
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     autoprefixer: {
       build: {
         expand: true,
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
         dest: 'bundle.js'
       }
     },
-    
+
     browserify: {
       build: {
         src: 'build/js/index.js',
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
         options: {
           port: 8080,
           base: 'build',
-          hostname: '*'
+          hostname: 'localhost'
         }
       }
     }
