@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    // Copy everything to dist
+    // Copy everything to build
     copy: {
       build: {
         cwd: 'src',
@@ -10,6 +10,11 @@ module.exports = function(grunt) {
         dest: 'build',
         expand: true
       },
+      favicon: {
+        cwd: 'src/img',
+        src: ['favicon.ico'],
+        dest: 'build/favicon.ico'
+      }
     },
 
     // Clean /dist
