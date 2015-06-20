@@ -11,8 +11,7 @@ module.exports = function(grunt) {
         expand: true
       },
       favicon: {
-        cwd: 'src/img',
-        src: ['favicon.ico'],
+        src: ['src/img/favicon.ico'],
         dest: 'build/favicon.ico'
       }
     },
@@ -86,6 +85,26 @@ module.exports = function(grunt) {
       }
     },
 
+    // add headers, footers, etc.
+    
+    htmlbuild: {
+      dist: {
+        src: 'src/**/.html',
+        dest: 'build',
+        options: {
+          beautify: true,
+          relative: true,
+          sections: {
+            header: 'src/template/header.html',
+            footer: 'src/template/footer.html'
+          },
+          data: {
+            title: "redditloop",
+          },
+        }
+      }
+    },
+
     // Watch
     watch: {
       stylesheets: {
@@ -97,7 +116,8 @@ module.exports = function(grunt) {
         tasks: ['scripts']
       },
       copy: {
-        files: ['src/**', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js', '!src/**/*.svg'],
+        files: ['src/**', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js', '!src/**/*.svg',
+                '!src/**/*.html', '!src/template'],
         tasks: ['copy']
       }
     },
@@ -116,13 +136,14 @@ module.exports = function(grunt) {
   });
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-html-build');
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
 
   grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['browserify', 'uglify', 'clean:scripts']);
 
-  grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'stylesheets', 'scripts']);
+  grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'htmlbuild', 'stylesheets', 'scripts']);
   
   grunt.registerTask('default', 'Watches the project for changes, automatically builds them and runs a server.', [ 'build', 'connect', 'watch' ]);
 }
