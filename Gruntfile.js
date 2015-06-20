@@ -44,23 +44,16 @@ module.exports = function(grunt) {
       }
     },
 
-    // Auto add vendor prefixes
-    build: {
-      expand: true,
-      cwd: 'build',
-      src: ['**/*.css'],
-      dest: 'build'
-    },
-
     // Minify the CSS
     cssmin: {
       build: {
         files: {
-          'build/bundle.css': ['build/bundle.css']
+          'build/bundle.css': ['build/bundle.css', 'build/vendor/**/*.css']
         }
       }
     },
 
+    // Auto add vendor prefixes
     autoprefixer: {
       build: {
         expand: true,
