@@ -27,6 +27,9 @@ module.exports = function(grunt) {
       scripts: {
         src: ['build/**/*.js', '!build/bundle.js']
       },
+      templates: {
+        src: ['build/templates/**/*.html']
+      },
     },
 
     // compile scss to css
@@ -101,16 +104,11 @@ module.exports = function(grunt) {
     watch: {
       stylesheets: {
         files: ['src/**/*.scss'],
-        tasks: ['stylesheets']
+        tasks: ['copy', 'stylesheets']
       },
       scripts: {
         files: 'src/**/*.js',
         tasks: ['scripts']
-      },
-      copy: {
-        files: ['src/**', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js', '!src/**/*.svg',
-                '!src/**/*.html', '!src/template'],
-        tasks: ['copy']
       },
       includereplace: {
         files: ['src/**/*.html'],
@@ -130,10 +128,6 @@ module.exports = function(grunt) {
     }
     
   });
-  
-  grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-include-replace');
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
