@@ -1,6 +1,8 @@
 
 $theme-color: #3a79da;
 
+$base-font-family: 'Roboto', sans-serif;
+
 $radius: 4px;
 $unit: 8px;
 
@@ -20,6 +22,6 @@ $small: 900px;
   border-radius: $radius;
 
   color: $color;
-  
+
   padding: $unit $unit * 2;
 }

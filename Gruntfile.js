@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     // Auto add vendor prefixes
     build: {
       expand: true,
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     autoprefixer: {
       build: {
         expand: true,
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
         dest: 'bundle.js'
       }
     },
-    
+
     browserify: {
       build: {
         src: 'build/js/index.js',
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
         options: {
           port: 8080,
           base: 'build',
-          hostname: '*'
+          hostname: 'localhost'
         }
       }
     }
@@ -118,6 +118,6 @@ module.exports = function(grunt) {
   grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['browserify', 'uglify', 'clean:scripts']);
 
   grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'stylesheets', 'scripts']);
-  
+
   grunt.registerTask('default', 'Watches the project for changes, automatically builds them and runs a server.', [ 'build', 'connect', 'watch' ]);
 }
