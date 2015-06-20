@@ -106,7 +106,7 @@ module.exports = function(grunt) {
         tasks: ['stylesheets']
       },
       scripts: {
-        files: 'src/**/*.js',
+        files: 'src/js/**/*.js',
         tasks: ['scripts']
       },
       includereplace: {
@@ -114,6 +114,15 @@ module.exports = function(grunt) {
         tasks: ['includereplace']
       },
       
+    },
+    
+    jshint: {
+      options: {
+        globals: [],
+        browserify: true,
+        jquery: true
+      },
+      files: ['Gruntfile.js', 'src/js/**/*.js']
     },
 
     // Development Server
@@ -133,9 +142,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
 
-  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['browserify', 'uglify', 'clean:scripts']);
+  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['jshint', 'browserify', 'uglify', 'clean:scripts']);
 
   grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'includereplace', 'stylesheets', 'scripts', 'clean:vendor']);
   
   grunt.registerTask('default', 'Watches the project for changes, automatically builds them and runs a server.', [ 'build', 'connect', 'watch' ]);
-}
+};
