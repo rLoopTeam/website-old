@@ -10,25 +10,30 @@
   .gallery {
     width: 100%;
 
+    padding: $image-spacing;
+    padding-top: 0;
+
     li {
 
       list-style-type: none;
       display: block;
 
-      margin: $image-spacing;
-      
       img {
         display: block;
         width: 100%;
       }
 
     }
+
+    li + li {
+      margin-top: $image-spacing;
+    }
     
   }
   
 }
 
-
+/*
 @media(min-width: $small) { // hehehe because media
 
   #media-page {
@@ -93,3 +98,4 @@
   }
 
 }
+*/

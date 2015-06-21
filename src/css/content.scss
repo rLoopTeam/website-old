@@ -21,7 +21,7 @@ body > main {
     
     > header {
       border-bottom: 1px solid rgba(black, 0.1);
-      padding: $unit * 3;
+      padding: $unit * 3 $unit * 6;
 
       h1, h2, h3, h4 {
         color: rgba(black, 0.5);
