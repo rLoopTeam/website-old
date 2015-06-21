@@ -1,5 +1,6 @@
 
 #home-page {
+  
   > header {
 
     background-image: url("/img/hero-1.jpg");
@@ -12,7 +13,7 @@
     position: relative;
 
     height: 100vh;
-    min-height: 40em;
+    min-height: 30em;
 
     .top-bar {
       @include scrim-top(0.3);
@@ -58,9 +59,9 @@
     .hero {
       min-width: 0;
       max-width: none;
+      font-size: 18px;
+      position: static;
       width: 100% !important;
-      top: auto;
-      bottom: $unit * 4 + 24px + $unit * 8;
     }
 
     > footer {
