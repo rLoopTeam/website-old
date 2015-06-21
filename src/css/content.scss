@@ -2,7 +2,7 @@
 @import 'values';
 
 body > main {
-  max-width: 50em;
+  max-width: $small;
   min-height: 100vh;
   margin: 0 auto;
   padding: 3em auto;
@@ -22,14 +22,25 @@ body > main {
     > header {
       border-bottom: 1px solid rgba(black, 0.1);
       padding: $unit * 3;
-      
-      h1 {
+
+      h1, h2, h3, h4 {
         color: rgba(black, 0.5);
         font-weight: 600;
-        font-size: 24px;
         text-transform: uppercase;
       }
       
+      h1 {
+        font-size: 24px;
+      }
+      
+      h2 {
+        font-size: 20px;
+      }
+      
+    }
+
+    &.no-border > header {
+      border-bottom: none;
     }
 
     p {
