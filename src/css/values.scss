@@ -10,7 +10,14 @@ $learn-more-button-width: 9em;
 
 $social-icon-size: 24px;
 
+$image-ratio: 9/16;
+$image-split: 2/3;
+$image-split-small: 1/3;
+$image-spacing: $unit;
+
 $small: 900px;
+
+$image-height: $image-ratio * $small * $image-split;
 
 $anim: 0.13s;
 

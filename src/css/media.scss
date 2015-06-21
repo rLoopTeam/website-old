@@ -1,53 +1,95 @@
-h2.media-sub-header{
-    color:rgba(black,0.4);
-    font-size:1.5rem;
-    padding-left: 3*$unit;
-    padding-top: 3* $unit;
-    padding-bottom: 3*$unit;
+
+@import 'values';
+
+#media-page {
+  
+  .youtube-embed {
+    max-width: 100%;
+  }
+
+  .gallery {
+    width: 100%;
+
+    li {
+
+      list-style-type: none;
+      display: block;
+
+      margin: $image-spacing;
+      
+      img {
+        display: block;
+        width: 100%;
+      }
+
+    }
+    
+  }
+  
 }
 
-.gallery{
-    width:100%;
-    margin: 0 auto !important;
-    margin-left:1.5 * $unit;
-    .gallery-img{
-        height:10rem;
-        display:inline;
-        width:46%;
-        margin-bottom:3 * $unit;
 
+@media(min-width: $small){ // hehehe because media
 
-        &:nth-child(2n)
-        {
-            margin-right:2.5%;
-            margin-left:1%;
+  #media-page {
+
+    .gallery {
+
+      position: relative;
+
+      margin-top: -$image-spacing;
+
+      li {
+        overflow: hidden;
+        margin: $image-spacing 0;
+
+        display: block;
+        position: relative;
+
+        height: $image-height;
+
+        // for every other element (X.X.)
+        &:nth-child(4n+1),
+        &:nth-child(4n+3) {
+          padding-right: $image-spacing; // add spacing on the right
         }
 
-        &:nth-child(2n-1)
-        {
-            margin-left:2.5%;
-            margin-right:1%;
+        // for .XX. make them narrow
+        &:nth-child(4n+2),
+        &:nth-child(4n+3) {
+          width: $small * $image-split-small;
         }
+
+        // for X..X make them wide
+        &:nth-child(4n+1),
+        &:nth-child(4n+4) {
+          width: $small * $image-split - $image-spacing;
+        }
+
+        // for .X.X offset them to the right and move them up exactly one image-height + spacing (since
+        // they're display: block, they naturally appear on the next line)
+        &:nth-child(4n+2),
+        &:nth-child(4n+4) {
+          position: absolute;
+          right: 0;
+          margin-top: -$image-height - $image-spacing;
+        }
+
+        // center the image (only used for the narrow gallery images, but it applies to them all anyway)
+        img {
+          width: auto;
+          height: 100%;
+
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+        }
+        
+      }
+      
     }
-}
+    
+  }
 
-@media(max-width: 900px){ //hehehe because media
-    .gallery{
-        margin: 0 auto;
-        .gallery-img{
-            width:95%;
-            padding-left:5%;
-            &:nth-child(2n)
-            {
-                margin-right:0%;
-                margin-left:0%;
-            }
-
-            &:nth-child(2n-1)
-            {
-                margin-left:0%;
-                margin-right:0%;
-            }
-        }
-    }
 }
