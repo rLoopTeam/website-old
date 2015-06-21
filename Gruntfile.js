@@ -22,10 +22,16 @@ module.exports = function(grunt) {
         src: ['build']
       },
       stylesheets: {
-        src: ['build/css', '!build/bundle.css']
+        src: ['build/**/*.css', 'build/css', '!build/bundle.css']
       },
       scripts: {
-        src: ['build/**/*.js', '!build/bundle.js']
+        src: ['build/**/*.js', 'build/js', '!build/bundle.js']
+      },
+      templates: {
+        src: ['build/template/**/*.html', 'build/template']
+      },
+      vendor: {
+        src: ['vendor']
       },
     },
 
@@ -38,23 +44,16 @@ module.exports = function(grunt) {
       }
     },
 
-    // Auto add vendor prefixes
-    build: {
-      expand: true,
-      cwd: 'build',
-      src: ['**/*.css'],
-      dest: 'build'
-    },
-
     // Minify the CSS
     cssmin: {
       build: {
         files: {
-          'build/bundle.css': ['build/bundle.css']
+          'build/bundle.css': ['build/bundle.css', 'build/vendor/**/*.css']
         }
       }
     },
 
+    // Auto add vendor prefixes
     autoprefixer: {
       build: {
         expand: true,
@@ -75,6 +74,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Bundle JS, give require, etc.
     browserify: {
       build: {
         src: 'build/js/index.js',
@@ -86,7 +86,6 @@ module.exports = function(grunt) {
     },
 
     // add headers, footers, etc.
-    
     includereplace: {
       build: {
         src: 'src/*.html',
@@ -99,23 +98,32 @@ module.exports = function(grunt) {
 
     // Watch
     watch: {
+      options: {
+        livereload: true
+      },
       stylesheets: {
         files: ['src/**/*.scss'],
         tasks: ['stylesheets']
       },
       scripts: {
-        files: 'src/**/*.js',
+        files: 'src/js/**/*.js',
         tasks: ['scripts']
-      },
-      copy: {
-        files: ['src/**', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js', '!src/**/*.svg',
-                '!src/**/*.html', '!src/template'],
-        tasks: ['copy']
       },
       includereplace: {
         files: ['src/**/*.html'],
         tasks: ['includereplace']
-      }
+      },
+      
+    },
+    
+    // Lint
+    jshint: {
+      options: {
+        globals: [],
+        browserify: true,
+        jquery: true
+      },
+      files: ['Gruntfile.js', 'src/js/**/*.js']
     },
 
     // Development Server
@@ -124,23 +132,34 @@ module.exports = function(grunt) {
         options: {
           port: 8080,
           base: 'build',
-          hostname: 'localhost'
+          hostname: 'localhost',
+          livereload: true
+        }
+      }
+    },
+    
+    // Beautify
+    jsbeautifier : {
+      files : ["src/js/**/*.js", "src/**/*.html"],
+      options : {
+        js: {
+          indentSize: 2
+        },
+        
+        html: {
+          indentSize: 2
         }
       }
     }
     
   });
-  
-  grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-include-replace');
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
 
-  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['browserify', 'uglify', 'clean:scripts']);
+  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['jshint', 'jsbeautifier', 'browserify', 'uglify', 'clean:scripts']);
 
-  grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'includereplace', 'stylesheets', 'scripts']);
+  grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'includereplace', 'stylesheets', 'scripts', 'clean:vendor']);
   
   grunt.registerTask('default', 'Watches the project for changes, automatically builds them and runs a server.', [ 'build', 'connect', 'watch' ]);
-}
+};
