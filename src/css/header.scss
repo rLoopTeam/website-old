@@ -1,0 +1,125 @@
+
+@import 'values';
+
+body > header {
+
+  width: 100%;
+
+  overflow: hidden;
+
+  > .top-bar {
+
+    background-color: rgba(black, 0.4);
+
+    color: white;
+    
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+
+    padding: $unit * 1 $unit * 8;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    * {
+      display: inline-block;
+    }
+
+    img {
+      position: relative;
+      top: 2px;
+      width: 192px;
+    }
+
+    nav {
+      vertical-align: top;
+      padding: $unit * 1 $unit * 4;
+
+      text-transform: uppercase;
+      
+      li {
+        color: rgba(white, 0.6);
+        padding: $unit * 1 $unit * 2;
+      }
+      
+    }
+    
+    .learn-more.button {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+
+      display: block;
+      
+      position: absolute;
+
+      right: $unit * 3;
+      top: $unit * 2;
+
+      width: $learn-more-button-width;
+
+      @include button();
+
+    }
+
+  }
+
+}
+
+@media(max-width: $small) {
+  
+  body > header {
+
+    .top-bar {
+
+      * {
+        display: block;
+        text-align: center;
+      }
+      
+      h1.logo {
+        padding-top: $unit * 3 !important;
+        text-align: center;
+
+        img {
+          margin: 0 auto;
+        }
+      }
+
+      nav {
+        padding: $unit * 1 0 !important;
+        padding-top: $unit * 4 !important;
+
+        li {
+          padding: $unit * 1 0 !important;
+        }
+        
+      }
+      
+      .learn-more.button {
+        text-align: center;
+        
+        position: relative;
+        
+        top: auto;
+        right: auto;
+        margin: $unit * 2 auto;
+        margin-bottom: $unit * 3;
+      }
+    
+    }
+
+    .hero {
+      bottom: $unit * 4 + 24px + $unit * 6;
+      left: 0;
+      top: auto;
+      max-width: none;
+      width: 100%;
+      min-width: 0;
+    }
+
+  }
+  
+}

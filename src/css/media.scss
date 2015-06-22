@@ -1,0 +1,101 @@
+
+@import 'values';
+
+#media-page {
+  
+  .youtube-embed {
+    max-width: 100%;
+  }
+
+  .gallery {
+    width: 100%;
+
+    padding: $image-spacing;
+    padding-top: 0;
+
+    li {
+
+      list-style-type: none;
+      display: block;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+    }
+
+    li + li {
+      margin-top: $image-spacing;
+    }
+    
+  }
+  
+}
+
+/*
+@media(min-width: $small) { // hehehe because media
+
+  #media-page {
+
+    .gallery {
+
+      position: relative;
+
+      margin-top: -$image-spacing;
+
+      li {
+        overflow: hidden;
+        margin: $image-spacing 0;
+
+        display: block;
+        position: relative;
+
+        height: $image-height;
+
+        // for every other element (X.X.)
+        &:nth-child(4n+1),
+        &:nth-child(4n+3) {
+          padding-right: $image-spacing; // add spacing on the right
+        }
+
+        // for .XX. make them narrow
+        &:nth-child(4n+2),
+        &:nth-child(4n+3) {
+          width: $small * $image-split-small;
+        }
+
+        // for X..X make them wide
+        &:nth-child(4n+1),
+        &:nth-child(4n+4) {
+          width: $small * $image-split - $image-spacing;
+        }
+
+        // for .X.X offset them to the right and move them up exactly one image-height + spacing (since
+        // they're display: block, they naturally appear on the next line)
+        &:nth-child(4n+2),
+        &:nth-child(4n+4) {
+          position: absolute;
+          right: 0;
+          margin-top: -$image-height - $image-spacing;
+        }
+
+        // center the image (only used for the narrow gallery images, but it applies to them all anyway)
+        img {
+          width: auto;
+          height: 100%;
+
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+        }
+        
+      }
+      
+    }
+    
+  }
+
+}
+*/

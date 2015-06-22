@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  @@include('template/head.html', {"title": "redditloop/media"})
+
+  <body id="media-page">
+
+    @@include('template/header.html')
+
+    <main>
+
+      <section class="no-border">
+
+        <header>
+          <h1>Media</h1>
+        </header>
+
+        <!--
+
+            <iframe width="900" height="506" src="https://www.youtube.com/embed/5QFoq1kX7cA?list=PLZH-sF1inZVwBGgnWJDpf_e7KLXxbUknF" frameborder="0" allowfullscreen="allowfullscreen" class="youtube-embed"></iframe>
+            
+            <header>
+              <h2>Images</h2>
+            </header>
+
+            -->
+
+        <ul class="gallery">
+          <li>
+            <a target="_blank" href="wallpapers/glass-angle.jpg">
+              <img src="wallpapers/glass-angle-thumb.jpg" />
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="wallpapers/tiltshift.jpg">
+              <img src="wallpapers/tiltshift-thumb.jpg" />
+            </a>
+          </li>
+        </ul>
+
+      </section>
+
+    </main>
+
+    @@include('template/footer.html')
+
+  </body>
+
+</html>

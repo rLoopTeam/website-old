@@ -1,0 +1,69 @@
+
+@import 'values';
+
+body > footer {
+  background-color: rgba(white, 0.5);
+
+  color: rgba(black, 0.5);
+  text-transform: uppercase;
+  font-weight: bold;
+
+  width: 100%;
+  
+  padding: $unit * 1 $unit * 6;
+  height: $social-icon-size + $unit * 4;
+
+  > * {
+    display: inline-block;
+  }
+  
+  .footer-social-links {
+    
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    user-select: none;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+
+      color: transparent;
+      
+      width: $social-icon-size;
+      height: $social-icon-size;
+
+      margin: $unit * 1;
+
+      background-image: url("/img/social-icons.png");
+
+      &.reddit {
+        background-position: 0 24px;
+      }
+
+      &.youtube {
+        background-position: 24px 0;
+      }
+
+    }
+    
+  }
+
+  .legal {
+    float: right;
+    font-size: 13px;
+    margin: $unit * 1 - 2px 0;
+
+    li {
+      display: inline-block;
+      margin: $unit * 1 $unit * 2;
+      list-style-type: none;
+    }
+  }
+  
+}
+
+@media(max-width: $small) {
+  
+}
+
