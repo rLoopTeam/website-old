@@ -9,6 +9,7 @@ script:
   - echo "No Tests Yet!"
 after_sucess: |
   BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  echo $BRANCH
   if [ $BRANCH == "master"] then
     npm run deploy-prod
   elif [ $BRANCH == "master-qa"] then
