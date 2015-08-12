@@ -9,7 +9,7 @@ DEPLOY_HOST=107.170.223.121
 DEPLOY_USER=dokku
 
 DEV_REPO=dev
-PROD_REPO=prod
+PROD_REPO="rloop.org"
 
 npm run build
 touch build/.static

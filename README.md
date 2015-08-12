@@ -1,7 +1,7 @@
 # Website
-The code for the website @ http://redditloop.co
+The code for the website @ http://rLoop.org
 
-http://redditloop.co is the official site for Reddit's SpaceX hyperloop competition team
+http://rLoop is the official site for the rLoop Project
 
 
 ### Development Process
@@ -10,7 +10,9 @@ http://redditloop.co is the official site for Reddit's SpaceX hyperloop competit
 - Create branch from master-qa for your changes
 - When changes complete, submit pull request to master-qa branch
 - Web-dev team leaders will review changes
-- Changes will be merged to master and deployed to server
+- Changes will be merged to master
+- Anything on master-qa will be deployed to dev.rloop.org via Travis
+- Anything on master will be deployed to rloop.org via Travis
 
 ### Dependencies
 - Ruby `apt-get install ruby1.9.1`
