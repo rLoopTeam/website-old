@@ -41,7 +41,8 @@ if git ls-remote --exit-code "$REMOTE" > /dev/null; then
     git remote rm "$REMOTE"
 fi
 
-git subtree push --prefix build tmpDeployRemote master
+KEY=$(pwd)/id_rsa
+ssh-agent bash -c 'ssh-add $KEY; git subtree push --prefix build tmpDeployRemote master'
 cat .gitignore.old > .gitignore
 rm -rf .gitignore.old
 

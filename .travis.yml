@@ -1,6 +1,9 @@
 language: node_js
 node_js:
 - '0.12'
+cache:
+  directories:
+  - node_modules
 addons:
   ssh_known_hosts:
   - rloop.org
@@ -12,7 +15,7 @@ branches:
   - master-qa
 before_install:
 - openssl aes-256-cbc -K $encrypted_ff32fec8a5be_key -iv $encrypted_ff32fec8a5be_iv
-  -in travis_id_rsa.enc -out id_rsa -d
+  -in id_rsa.enc -out id_rsa -d
 - npm install -g grunt-cli
 install: NODE_ENV=development npm install
 script:
