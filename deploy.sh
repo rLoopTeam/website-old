@@ -5,7 +5,7 @@ git config --global user.email "travis@rloop.org"
 git config --global user.name "Travis CI"
 
 #DEPLOY_HOST=rloop.org
-DEPLOY_HOST=104.236.128.222
+DEPLOY_HOST=107.170.223.121
 DEPLOY_USER=dokku
 
 DEV_REPO=dev
@@ -30,11 +30,8 @@ echo $BRANCH
 chmod +x ./git_ssh.sh
 
 
-mv build ../build
-mv git_ssh.sh ../git_ssh.sh
-mv id_rsa ../id_rsa
 #create new git repository and add everything
-cd ../build
+cd build
 git init
 git add .
 git commit -m"init"
@@ -47,14 +44,8 @@ elif [ "$BRANCH" == "master-qa" ]; then
     git remote add dokku "$DEPLOY_USER@$DEPLOY_HOST:$DEV_REPO"
 fi
 
-#pull dokku but then checkback out our current local master and mark everything as merged
-GIT_SSH=../git_ssh.sh PKEY=../id_rsa git pull --no-commit dokku master
-git checkout --ours .
-git add -u
-git commit -m"merged"
-
 #push back to dokku and remove git repository
-GIT_SSH=../git_ssh.sh PKEY=../id_rsa git push dokku master
+GIT_SSH=../git_ssh.sh PKEY=../id_rsa git push dokku master --force
 
 #go back to wherever we started.
 cd -
