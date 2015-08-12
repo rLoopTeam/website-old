@@ -7,7 +7,7 @@ branches:
     - "master-qa"
 script:
   - echo "No Tests Yet!"
-after_sucess: |
+after_success: |
   BRANCH=$(git rev-parse --abbrev-ref HEAD)
   echo $BRANCH
   if [ $BRANCH == "master"] then
