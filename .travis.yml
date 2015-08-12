@@ -8,10 +8,9 @@ branches:
 script:
   - echo "No Tests Yet!"
 after_success: |
-  BRANCH=$(git rev-parse --abbrev-ref HEAD)
-  echo $BRANCH
-  if [ "$BRANCH" == "master" ]; then
+  echo $TRAVIS_BRANCH
+  if [ "$TRAVIS_BRANCH" == "master" ]; then
     echo "prod"
-  elif [ "$BRANCH" == "master-qa" ]; then
+  elif [ "$TRAVIS_BRANCH" == "master-qa" ]; then
     echo "dev"
   fi
