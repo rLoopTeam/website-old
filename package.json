@@ -28,8 +28,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy-prod": "npm run build && git subtree push --prefix build prod master",
-    "deploy-dev": "npm run build && git subtree push --prefix build dev master",
+    "deployProd": "npm run build && git subtree push --prefix build prod master",
+    "deployDev": "npm run build && git subtree push --prefix build dev master",
     "build": "grunt build"
   },
   "repository": {

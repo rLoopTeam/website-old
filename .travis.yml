@@ -10,7 +10,7 @@ script:
 after_success: |
   echo $TRAVIS_BRANCH
   if [ "$TRAVIS_BRANCH" == "master" ]; then
-    npm run deploy-prod
+    npm run deployProd
   elif [ "$TRAVIS_BRANCH" == "master-qa" ]; then
-    npm run deploy-dev
+    npm run deployDev
   fi
