@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Building"
+grunt build
+
 echo "Deploying"
 set -ev
 echo "Checking for branch"
