@@ -8,7 +8,7 @@ branches:
 before_install:
   - npm install -g grunt-cli
   - npm install grunt
-install: npm install
+install: NODE_ENV=development npm install
 script:
   - echo "No Tests Yet!"
 #  - grunt build
