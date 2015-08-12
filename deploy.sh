@@ -7,6 +7,8 @@ else
     BRANCH=$(git rev-parse --abbrev-ref HEAD)
 fi
 
+echo $BRANCH
+
 if [ "$BRANCH" == "master" ]; then
     npm run deployProd
 elif [ "$BRANCH" == "master-qa" ]; then
