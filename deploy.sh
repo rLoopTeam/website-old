@@ -44,13 +44,13 @@ elif [ "$BRANCH" == "master-qa" ]; then
 fi
 
 #pull heroku but then checkback out our current local master and mark everything as merged
-GIT_SSH=../git_ssh.sh PKEY=id_rsa git pull dokku master
+GIT_SSH=../git_ssh.sh PKEY=../id_rsa git pull dokku master
 git checkout --ours .
 git add -u
 git commit -m"merged"
 
 #push back to heroku, open web browser, and remove git repository
-GIT_SSH=../git_ssh.sh PKEY=id_rsa git push dokku master
+GIT_SSH=../git_ssh.sh PKEY=../id_rsa git push dokku master
 rm -fr .git
 
 #go back to wherever we started.
