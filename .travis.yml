@@ -5,7 +5,9 @@ branches:
   only:
     - master
     - master-qa
-before_install: npm install -g grunt-cli
+before_install:
+  - npm install -g grunt-cli
+  - npm install grunt
 install: npm install
 script:
   - echo "No Tests Yet!"
