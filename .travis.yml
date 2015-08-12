@@ -9,4 +9,5 @@ before_install: npm install -g grunt-cli
 install: npm install
 script:
   - echo "No Tests Yet!"
+  - grunt build
   - bash deploy.sh
