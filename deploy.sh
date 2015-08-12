@@ -24,15 +24,7 @@ fi
 
 echo $BRANCH
 
-REMOTE=rloopTmpDeployRemote
-
 chmod +x ./git_ssh.sh
-
-git status
-
-if GIT_SSH=./git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
-    git remote rm "$REMOTE"
-fi
 
 #create new git repository and add everything
 cd build
@@ -42,14 +34,14 @@ git commit -m"init"
 
 if [ "$BRANCH" == "master" ]; then
     echo "Deploying to Production"
-    git remote add "$REMOTE" "$DEPLOY_USER@$DEPLOY_HOST:$PROD_REPO"
+    git remote add dokku "$DEPLOY_USER@$DEPLOY_HOST:$PROD_REPO"
 elif [ "$BRANCH" == "master-qa" ]; then
     echo "Deploying to dev"
-    git remote add "$REMOTE" "$DEPLOY_USER@$DEPLOY_HOST:$DEV_REPO"
+    git remote add dokku "$DEPLOY_USER@$DEPLOY_HOST:$DEV_REPO"
 fi
 
 if GIT_SSH=./git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
-    git remote rm "$REMOTE"
+    git remote rm dokku
 fi
 
 #pull heroku but then checkback out our current local master and mark everything as merged
