@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -ev
 if [ -n "${TRAVIS_BRANCH+1}" ]; then
     BRANCH="$TRAVIS_BRANCH"
 else
