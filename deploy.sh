@@ -41,8 +41,7 @@ if git ls-remote --exit-code "$REMOTE" > /dev/null; then
     git remote rm "$REMOTE"
 fi
 
-ssh-add id_rsa
-git subtree push --prefix build tmpDeployRemote master
+GIT_SSH=git_ssh.sh PKEY=id_rsa git subtree push --prefix build tmpDeployRemote master
 cat .gitignore.old > .gitignore
 rm -rf .gitignore.old
 
