@@ -31,6 +31,11 @@ REMOTE=rloopTmpDeployRemote
 
 chmod +x ./git_ssh.sh
 
+git add .
+git add build
+
+git status
+
 if GIT_SSH=./git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
     git remote rm "$REMOTE"
 fi
