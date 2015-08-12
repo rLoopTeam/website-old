@@ -43,13 +43,13 @@ elif [ "$BRANCH" == "master-qa" ]; then
     git remote add dokku "$DEPLOY_USER@$DEPLOY_HOST:$DEV_REPO"
 fi
 
-#pull heroku but then checkback out our current local master and mark everything as merged
-GIT_SSH=../git_ssh.sh PKEY=../id_rsa git pull dokku master
+#pull dokku but then checkback out our current local master and mark everything as merged
+GIT_SSH=../git_ssh.sh PKEY=../id_rsa git pull dokku master --no-commit
 git checkout --ours .
 git add -u
 git commit -m"merged"
 
-#push back to heroku, open web browser, and remove git repository
+#push back to dokku and remove git repository
 GIT_SSH=../git_ssh.sh PKEY=../id_rsa git push dokku master
 rm -fr .git
 
