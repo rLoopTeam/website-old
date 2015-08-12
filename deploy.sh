@@ -44,7 +44,7 @@ elif [ "$BRANCH" == "master-qa" ]; then
 fi
 
 #pull dokku but then checkback out our current local master and mark everything as merged
-GIT_SSH=../git_ssh.sh PKEY=../id_rsa git pull dokku master --no-commit
+GIT_SSH=../git_ssh.sh PKEY=../id_rsa git pull --no-commit dokku master
 git checkout --ours .
 git add -u
 git commit -m"merged"
