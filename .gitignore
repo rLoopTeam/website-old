@@ -161,6 +161,8 @@ tmtags
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
+tmp
+
 
 ### Vim ###
 [._]*.s[a-w][a-z]

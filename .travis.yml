@@ -10,8 +10,8 @@ script:
 after_success: |
   BRANCH=$(git rev-parse --abbrev-ref HEAD)
   echo $BRANCH
-  if [ $BRANCH == "master"] then
-    npm run deploy-prod
-  elif [ $BRANCH == "master-qa"] then
-    npm run deploy-dev
+  if [ "$BRANCH" == "master" ]; then
+    echo "prod"
+  elif [ "$BRANCH" == "master-qa" ]; then
+    echo "dev"
   fi
