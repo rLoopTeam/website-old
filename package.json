@@ -30,7 +30,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "deployProd": "npm run build && git subtree push --prefix build prod master",
     "deployDev": "npm run build && git subtree push --prefix build dev master",
-    "build": "grunt build"
+    "build": "./node_modules/.bin/grunt build"
   },
   "repository": {
     "type": "git",
