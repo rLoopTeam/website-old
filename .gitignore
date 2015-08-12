@@ -212,3 +212,6 @@ tramp
 .sass-cache
 build
 build/*
+secure
+secure/
+secure/**

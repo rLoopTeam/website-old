@@ -1,15 +1,21 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "0.12"
+- '0.12'
+addons:
+  ssh_known_hosts:
+  - rloop.org
+  - dev.rloop.org
+  - 104.236.128.222
 branches:
   only:
-    - master
-    - master-qa
+  - master
+  - master-qa
 before_install:
-  - npm install -g grunt-cli
+- openssl aes-256-cbc -K $encrypted_ff32fec8a5be_key -iv $encrypted_ff32fec8a5be_iv
+  -in travis_id_rsa.enc -out id_rsa -d
+- npm install -g grunt-cli
 install: NODE_ENV=development npm install
 script:
-  - echo "No Tests Yet!"
-  - npm run deploy
-  - bash deploy.sh
+- echo "No Tests Yet!"
+- npm run deploy
+- bash deploy.sh

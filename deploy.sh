@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -ev
 
-DEPLOY_HOST=rloop.org
+#DEPLOY_HOST=rloop.org
+DEPLOY_HOST=104.236.128.222
 DEPLOY_USER=dokku
 
 DEV_REPO=dev
@@ -10,6 +11,9 @@ PROD_REPO=prod
 npm run build
 mv .gitignore .gitignore.old
 curl www.gitignore.io/api/Node,OSX,Windows,Linux,Vim,Emacs,SublimeText,Textmate,Webstorm > .gitignore
+echo "secure" >> ./.gitignore
+touch build/.static
+cat .env > build/.env
 
 echo "Deploying"
 echo "Checking for branch"
