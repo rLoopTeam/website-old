@@ -29,6 +29,8 @@ echo $BRANCH
 
 REMOTE=rloopTmpDeployRemote
 
+chmod +x ./git_ssh.sh
+
 if GIT_SSH=./git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
     git remote rm "$REMOTE"
 fi
