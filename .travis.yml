@@ -22,4 +22,3 @@ install: NODE_ENV=development npm install
 script:
 - echo "No Tests Yet!"
 - npm run deploy
-- bash deploy.sh

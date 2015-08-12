@@ -29,8 +29,10 @@ echo $BRANCH
 
 chmod +x ./git_ssh.sh
 
+
+mv build ../build
 #create new git repository and add everything
-cd build
+cd ../build
 git init
 git add .
 git commit -m"init"
