@@ -55,9 +55,6 @@ git commit -m"merged"
 
 #push back to dokku and remove git repository
 GIT_SSH=../git_ssh.sh PKEY=../id_rsa git push dokku master
-rm -rf .git ../git_ssh.sh ././id_rsa
-cd ..
-rm -rf build
 
 #go back to wherever we started.
 cd -
