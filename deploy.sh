@@ -1,12 +1,10 @@
 #!/bin/bash
 
+set -ev
 pwd
 ls -lah
-echo "Building"
-grunt build
 
 echo "Deploying"
-set -ev
 echo "Checking for branch"
 if [ -n "${TRAVIS_BRANCH+1}" ]; then
     echo "Using travis branch"
