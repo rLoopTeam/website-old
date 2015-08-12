@@ -7,9 +7,8 @@ branches:
     - master-qa
 before_install:
   - npm install -g grunt-cli
-  - npm install grunt
 install: NODE_ENV=development npm install
 script:
   - echo "No Tests Yet!"
-#  - grunt build
+  - npm run build
   - bash deploy.sh

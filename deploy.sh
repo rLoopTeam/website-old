@@ -1,9 +1,6 @@
 #!/bin/bash
 
 set -ev
-pwd
-ls -lah
-
 echo "Deploying"
 echo "Checking for branch"
 if [ -n "${TRAVIS_BRANCH+1}" ]; then
