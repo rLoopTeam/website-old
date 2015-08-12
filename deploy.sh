@@ -31,6 +31,8 @@ chmod +x ./git_ssh.sh
 
 
 mv build ../build
+mv git_ssh.sh ../git_ssh.sh
+mv id_rsa ../id_rsa
 #create new git repository and add everything
 cd ../build
 git init
@@ -53,7 +55,9 @@ git commit -m"merged"
 
 #push back to dokku and remove git repository
 GIT_SSH=../git_ssh.sh PKEY=../id_rsa git push dokku master
-rm -fr .git
+rm -rf .git ../git_ssh.sh ././id_rsa
+cd ..
+rm -rf build
 
 #go back to wherever we started.
 cd -
