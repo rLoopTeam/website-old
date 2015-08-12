@@ -37,7 +37,7 @@ elif [ "$BRANCH" == "master-qa" ]; then
     git remote add "$REMOTE" "$DEPLOY_USER@$DEPLOY_HOST:$DEV_REPO"
 fi
 
-if git ls-remote --exit-code "$REMOTE" > /dev/null; then
+if GIT_SSH=git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
     git remote rm "$REMOTE"
 fi
 
