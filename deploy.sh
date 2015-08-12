@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -ev
 
+git config --global user.email "travis@rloop.org"
+git config --global user.name "Travis CI"
+
 #DEPLOY_HOST=rloop.org
 DEPLOY_HOST=104.236.128.222
 DEPLOY_USER=dokku
