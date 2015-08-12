@@ -24,7 +24,6 @@ fi
 echo $BRANCH
 
 REMOTE=rloopTmpDeployRemote
-git remote rm "$REMOTE"
 
 if [ "$BRANCH" == "master" ]; then
     echo "Deploying to Production"
@@ -32,10 +31,11 @@ if [ "$BRANCH" == "master" ]; then
 elif [ "$BRANCH" == "master-qa" ]; then
     echo "Deploying to dev"
     git remote add "$REMOTE" "$DEPLOY_USER@$DEPLOY_HOST:$DEV_REPO"
-    git remote add "$REMOTE" "$DEPLOY_USER@$DEPLOY_HOST:$DEV_REPO"
 fi
 
-git remote rm "$REMOTE"
+if git ls-remote --exit-code "$REMOTE" > /dev/null; then
+    git remote rm "$REMOTE"
+fi
 
 git subtree push --prefix build tmpDeployRemote master
 cat .gitignore.old > .gitignore
