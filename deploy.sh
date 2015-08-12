@@ -9,9 +9,6 @@ DEV_REPO=dev
 PROD_REPO=prod
 
 npm run build
-mv .gitignore .gitignore.old
-curl www.gitignore.io/api/Node,OSX,Windows,Linux,Vim,Emacs,SublimeText,Textmate,Webstorm > .gitignore
-echo "secure" >> ./.gitignore
 touch build/.static
 cat .env > build/.env
 
@@ -31,14 +28,17 @@ REMOTE=rloopTmpDeployRemote
 
 chmod +x ./git_ssh.sh
 
-git add .
-git add build
-
 git status
 
 if GIT_SSH=./git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
     git remote rm "$REMOTE"
 fi
+
+#create new git repository and add everything
+cd build
+git init
+git add .
+git commit -m"init"
 
 if [ "$BRANCH" == "master" ]; then
     echo "Deploying to Production"
@@ -52,8 +52,17 @@ if GIT_SSH=./git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/n
     git remote rm "$REMOTE"
 fi
 
-GIT_SSH=./git_ssh.sh PKEY=id_rsa git subtree push --prefix build tmpDeployRemote master
-cat .gitignore.old > .gitignore
-rm -rf .gitignore.old
+#pull heroku but then checkback out our current local master and mark everything as merged
+GIT_SSH=./git_ssh.sh PKEY=id_rsa git pull dokku master
+git checkout --ours .
+git add -u
+git commit -m"merged"
+
+#push back to heroku, open web browser, and remove git repository
+GIT_SSH=./git_ssh.sh PKEY=id_rsa git push dokku master
+rm -fr .git
+
+#go back to wherever we started.
+cd -
 
 echo "Deployed"
