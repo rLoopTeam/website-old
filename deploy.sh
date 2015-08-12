@@ -29,7 +29,7 @@ echo $BRANCH
 
 REMOTE=rloopTmpDeployRemote
 
-if GIT_SSH=git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
+if GIT_SSH=./git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
     git remote rm "$REMOTE"
 fi
 
@@ -41,11 +41,11 @@ elif [ "$BRANCH" == "master-qa" ]; then
     git remote add "$REMOTE" "$DEPLOY_USER@$DEPLOY_HOST:$DEV_REPO"
 fi
 
-if GIT_SSH=git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
+if GIT_SSH=./git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
     git remote rm "$REMOTE"
 fi
 
-GIT_SSH=git_ssh.sh PKEY=id_rsa git subtree push --prefix build tmpDeployRemote master
+GIT_SSH=./git_ssh.sh PKEY=id_rsa git subtree push --prefix build tmpDeployRemote master
 cat .gitignore.old > .gitignore
 rm -rf .gitignore.old
 
