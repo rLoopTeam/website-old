@@ -11,5 +11,5 @@ before_install:
 install: npm install
 script:
   - echo "No Tests Yet!"
-  - grunt build
+#  - grunt build
   - bash deploy.sh
