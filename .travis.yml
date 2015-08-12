@@ -7,7 +7,4 @@ branches:
     - master-qa
 script:
   - echo "No Tests Yet!"
-deploy:
-  skip_cleanup: true
-after_success:
   - bash deploy.sh
