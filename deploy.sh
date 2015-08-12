@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pwd
+ls -lah
 echo "Building"
 grunt build
 
