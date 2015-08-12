@@ -7,10 +7,10 @@ branches:
     - "master-qa"
 script:
   - echo "No Tests Yet!"
-after_success: |
-  echo $TRAVIS_BRANCH
-  if [ "$TRAVIS_BRANCH" == "master" ]; then
-    npm run deployProd
-  elif [ "$TRAVIS_BRANCH" == "master-qa" ]; then
-    npm run deployDev
-  fi
+
+deploy:
+  provider: script
+  script: deploy.sh
+  on:
+  	branch: develop
+  skip_cleanup: true
