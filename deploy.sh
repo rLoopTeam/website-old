@@ -29,6 +29,10 @@ echo $BRANCH
 
 REMOTE=rloopTmpDeployRemote
 
+if GIT_SSH=git_ssh.sh PKEY=id_rsa git ls-remote --exit-code "$REMOTE" > /dev/null; then
+    git remote rm "$REMOTE"
+fi
+
 if [ "$BRANCH" == "master" ]; then
     echo "Deploying to Production"
     git remote add "$REMOTE" "$DEPLOY_USER@$DEPLOY_HOST:$PROD_REPO"
