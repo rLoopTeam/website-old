@@ -7,5 +7,6 @@ branches:
     - master-qa
 script:
   - echo "No Tests Yet!"
+  - ls
   - npm install -g grunt-cli
   - bash deploy.sh
