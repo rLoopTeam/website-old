@@ -11,5 +11,5 @@ before_install:
 install: NODE_ENV=development npm install
 script:
   - echo "No Tests Yet!"
-  - npm run build
+  - npm run deploy
   - bash deploy.sh
