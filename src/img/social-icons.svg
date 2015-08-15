@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="social-icons.svg"
-   inkscape:export-filename="/home/zlsa/projects/redditloop/pr/webdesign/website/assets/images/social-icons.png"
+   inkscape:export-filename="/home/zlsa/projects/rloop/pr/webdesign/website/build/img/social-icons.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -28,12 +28,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313708"
-     inkscape:cx="24.408003"
-     inkscape:cy="25.089818"
+     inkscape:zoom="8"
+     inkscape:cx="38.386066"
+     inkscape:cy="13.188359"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="true"
+     showgrid="false"
      units="px"
      inkscape:window-width="1600"
      inkscape:window-height="859"
@@ -64,7 +64,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -103,5 +103,10 @@
          x="12"
          y="1046.3621"
          style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:17.5px;font-family:'Encode Sans Compressed';-inkscape-font-specification:'Encode Sans Compressed Ultra-Bold';fill:#404040;fill-opacity:1">/r/</tspan></text>
+    <path
+       style="opacity:1;fill:#404040;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 28 28 L 28 44 L 36 44 L 36 38 L 35 38 L 35 36 L 36 36 L 36 35 C 36 33 36 31 39 31 L 41 31 L 41 33 L 39 33 C 38 33 38 34 38 35 L 38 36 L 41 36 L 40 38 L 38 38 L 38 44 L 44 44 L 44 28 L 28 28 z "
+       transform="translate(0,1004.3621)"
+       id="rect3556" />
   </g>
 </svg>
