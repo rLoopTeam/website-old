@@ -12,10 +12,10 @@ body > header {
     background-color: rgba(black, 0.4);
 
     color: white;
-    
+
     top: 0;
     left: 0;
-    
+
     width: 100%;
 
     padding: $unit * 1 $unit * 8;
@@ -38,21 +38,21 @@ body > header {
       padding: $unit * 1 $unit * 4;
 
       text-transform: uppercase;
-      
+
       li {
         color: rgba(white, 0.6);
         padding: $unit * 1 $unit * 2;
       }
-      
+
     }
-    
-    .learn-more.button {
+
+    .donate.button {
       font-size: 24px;
       font-weight: bold;
       text-align: center;
 
       display: block;
-      
+
       position: absolute;
 
       right: $unit * 3;
@@ -69,7 +69,7 @@ body > header {
 }
 
 @media(max-width: $small) {
-  
+
   body > header {
 
     .top-bar {
@@ -78,7 +78,7 @@ body > header {
         display: block;
         text-align: center;
       }
-      
+
       h1.logo {
         padding-top: $unit * 3 !important;
         text-align: center;
@@ -95,20 +95,20 @@ body > header {
         li {
           padding: $unit * 1 0 !important;
         }
-        
+
       }
-      
+
       .learn-more.button {
         text-align: center;
-        
+
         position: relative;
-        
+
         top: auto;
         right: auto;
         margin: $unit * 2 auto;
         margin-bottom: $unit * 3;
       }
-    
+
     }
 
     .hero {
@@ -121,5 +121,5 @@ body > header {
     }
 
   }
-  
+
 }
