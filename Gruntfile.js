@@ -113,9 +113,9 @@ module.exports = function(grunt) {
         files: ['src/**/*.html'],
         tasks: ['includereplace']
       },
-      
+
     },
-    
+
     // Lint
     jshint: {
       options: {
@@ -130,14 +130,14 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          port: 8080,
+          port: process.env.PORT || 8080,
           base: 'build',
           hostname: 'localhost',
           livereload: true
         }
       }
     },
-    
+
     // Beautify
     jsbeautifier : {
       files : ["src/js/**/*.js", "src/**/*.html"],
@@ -145,25 +145,25 @@ module.exports = function(grunt) {
         js: {
           indentSize: 2
         },
-        
+
         html: {
           indentSize: 2
         }
       }
     }
-    
+
   });
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('stylesheets', 'Compiles the stylesheets.', ['sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']);
 
 //  grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['jshint', 'jsbeautifier', 'browserify', 'uglify', 'clean:scripts']);
-  
+
   grunt.registerTask('templates', 'Compiles the HTML files.', ['includereplace', 'clean:templates']);
-  
+
   grunt.registerTask('scripts', 'Compiles the JavaScript files.', ['jshint', 'browserify', 'uglify', 'clean:scripts']);
 
   grunt.registerTask('build', 'Compiles all of the assets and copies the files to the build directory.', ['clean:build', 'copy', 'templates', 'stylesheets', 'scripts', 'clean:vendor']);
-  
+
   grunt.registerTask('default', 'Watches the project for changes, automatically builds them and runs a server.', [ 'build', 'connect', 'watch' ]);
 };
